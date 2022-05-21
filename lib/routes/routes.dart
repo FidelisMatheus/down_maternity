@@ -22,8 +22,7 @@ class Routes {
   static String getRegisterScreen() => registerUserScreen;
   static String getAboutScreen() => aboutScreen;
 
-  static String getDetailsScreen(int id, String title) =>
-      '$detailsScreen?id=$id&title=$title';
+  static String getDetailsScreen(int id, String title) => '$detailsScreen?id=$id&title=$title';
 
   static List<GetPage> routes = [
     GetPage(
