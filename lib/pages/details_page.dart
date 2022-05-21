@@ -9,10 +9,11 @@ import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 import 'package:projeto_sindrome_down/widgets/expansion_widget.dart';
 
+
 class DetailsPage extends StatefulWidget {
   final int id;
   final String title;
-
+  
   const DetailsPage({
     Key? key,
     required this.id,
