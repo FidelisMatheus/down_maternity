@@ -125,10 +125,12 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     children: [
                       BigCardWidget(
+                        id: 1,
                         image: 'images/logo.jpg',
                         title: 'O que é Síndrome de Down?',
                       ),
                       BigCardWidget(
+                        id: 2,
                         image: 'images/logo.jpg',
                         title: 'Cuidados Gerais',
                       ),
@@ -137,10 +139,12 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     children: [
                       BigCardWidget(
+                        id: 3,
                         image: 'images/logo.jpg',
                         title: 'Recomendações',
                       ),
                       BigCardWidget(
+                        id: 4,
                         image: 'images/logo.jpg',
                         title: 'Síndrome de Down x COVID-19',
                       ),

@@ -4,5 +4,5 @@ class Topic {
   late bool expand;
   late bool check;
 
-  Topic(this.title, this.text, this.expand, this.check);
+  Topic(this.title, this.text, this.check, this.expand);
 }

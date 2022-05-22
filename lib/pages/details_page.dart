@@ -5,15 +5,15 @@ import 'package:get/get.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 
-import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 import 'package:projeto_sindrome_down/widgets/expansion_widget.dart';
 
+import '../model/list_topics.dart';
 
 class DetailsPage extends StatefulWidget {
   final int id;
   final String title;
-  
+
   const DetailsPage({
     Key? key,
     required this.id,
@@ -25,50 +25,12 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  late bool exibir;
-  List<Topic> listTopics = [
-    Topic(
-      'Teste 1',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-    Topic(
-      'Teste 2',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-    Topic(
-      'Teste 2',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-    Topic(
-      'Teste 2',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-    Topic(
-      'Teste 2',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-    Topic(
-      'Teste 2',
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      false,
-      false,
-    ),
-  ];
+  List<Topic> listTopics = [];
 
   @override
   void initState() {
     super.initState();
-    exibir = false;
+    listTopics = ListTopics(id: widget.id).selectList();
   }
 
   @override
@@ -116,8 +78,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     });
                   },
                   child: ExpansionWidget(
-                    title: listTopics[index].title,
-                    expand: listTopics[index].expand,
+                    topic: listTopics[index],
                   ),
                 );
               },
