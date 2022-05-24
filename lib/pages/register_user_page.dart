@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
@@ -17,6 +18,14 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+
+    String? email;
+    String? password;
+    String? name;
+    bool _obscureText = false;
+
+    bool agree = false;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -106,7 +115,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           if (value == null || value.isEmpty) {
                             return 'O nome é obrigatório';
                           } else {
-                            //runtime = value;
+                            name = value;
                           }
                           return null;
                         },
@@ -127,7 +136,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           if (value == null || value.isEmpty) {
                             return 'O e-mail é obrigatório';
                           } else {
-                            //runtime = value;
+                            email = value;
                           }
                           return null;
                         },
@@ -148,7 +157,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           if (value == null || value.isEmpty) {
                             return 'A senha é obrigatória';
                           } else {
-                            //runtime = value;
+                            password = value;
                           }
                           return null;
                         },
@@ -157,15 +166,45 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                     SizedBox(
                       height: 20,
                     ),
+                    Row(
+                      children: <Widget>[
+                        Checkbox(
+                          onChanged: (_) {
+                            setState(() {
+                              agree = !agree;
+                            });
+                          },
+                          value: agree,
+                        ),
+                        Flexible(
+                          child: Text(
+                              'Ao criar uma conta, concordo com os Termos e Condições e a Política de Privacidade.'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content:
-                                    Text('Cadastro efetuado com sucesso!')),
-                          );
-                          Get.offNamed(Routes.initial);
+                          _formKey.currentState!.save();
+
+                          Authentication()
+                              .signUp(email: email!, password: password!)
+                              .then((result) {
+                            if (result == null) {
+                              Get.offNamed(Routes.initial);
+                            } else {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text(
+                                  result,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ));
+                            }
+                          });
                         }
                       },
                       style: ElevatedButton.styleFrom(

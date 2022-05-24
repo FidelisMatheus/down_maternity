@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "831341864838",
+    "project_id": "app-down-maternity",
+    "storage_bucket": "app-down-maternity.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831341864838:android:cc0a02dcbba2f061a9ee07",
+        "android_client_info": {
+          "package_name": "com.example.projeto_sindrome_down"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831341864838-35f6m3nci9h4bnma6atonl97in7s8a70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEFYivQqdNN8LJ77I6dDCUFJpA627muaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831341864838-35f6m3nci9h4bnma6atonl97in7s8a70.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "831341864838-lhqaqf9mvnrq8ja36qrbkhs06fllcg1i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projetoSindromeDown"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
