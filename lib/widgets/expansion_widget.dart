@@ -26,14 +26,14 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
       children: [
         Container(
           width: Dimensions.width350,
-          height: 50,
+          height: Dimensions.height50,
           decoration: BoxDecoration(
               borderRadius: widget.topic.expand
                   ? BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
+                      topLeft: Radius.circular(Dimensions.radius10),
+                      topRight: Radius.circular(Dimensions.radius10),
                     )
-                  : BorderRadius.all(Radius.circular(8)),
+                  : BorderRadius.all(Radius.circular(Dimensions.radius10)),
               boxShadow: const [
                 BoxShadow(
                   color: Colors.grey,
@@ -45,23 +45,20 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      widget.topic.title,
-                      style: TextStyle(
-                        fontFamily: 'Open Sans',
-                        fontWeight: FontWeight.w800,
-                        fontSize: Dimensions.font16,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+              Container(
+                alignment: Alignment.center,
+                width: Dimensions.width250,
+                child: Text(
+                  widget.topic.title,
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontWeight: FontWeight.w600,
+                    fontSize: Dimensions.font16,
                   ),
-                  Icon(Icons.arrow_drop_down_outlined),
-                ],
+                  textAlign: TextAlign.center,
+                ),
               ),
+              Icon(Icons.arrow_drop_down_outlined),
               IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.check_box_outline_blank),
@@ -73,13 +70,17 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
             ? Container(
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.fromLTRB(
+                      Dimensions.height20,
+                      Dimensions.width10,
+                      Dimensions.height20,
+                      Dimensions.width10,
+                    ),
                     child: Text(
                       widget.topic.text,
                       style: TextStyle(
                         fontFamily: 'Open Sans',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
+                        fontSize: Dimensions.font18,
                       ),
                       textAlign: TextAlign.justify,
                     ),
@@ -87,8 +88,8 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+                    bottomLeft: Radius.circular(Dimensions.radius10),
+                    bottomRight: Radius.circular(Dimensions.radius10),
                   ),
                   // ignore: prefer_const_literals_to_create_immutables
                   boxShadow: [
@@ -101,11 +102,11 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                   color: AppColors.yellowColor,
                 ),
                 width: Dimensions.width350,
-                margin: EdgeInsets.only(bottom: 20),
+                margin: EdgeInsets.only(bottom: Dimensions.width20),
               )
             : SizedBox(
-                height: 20,
-              )
+                height: Dimensions.height20,
+              ),
       ],
     );
   }
