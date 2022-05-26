@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';

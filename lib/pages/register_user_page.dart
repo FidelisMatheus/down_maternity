@@ -15,17 +15,16 @@ class RegisterUserPage extends StatefulWidget {
 }
 
 class _RegisterUserPageState extends State<RegisterUserPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  String? email;
+  String? password;
+  String? name;
+  bool _obscureText = false;
+
+  bool agree = false;
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-
-    String? email;
-    String? password;
-    String? name;
-    bool _obscureText = false;
-
-    bool agree = false;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -145,9 +144,28 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: TextFormField(
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: !_obscureText,
                         decoration: InputDecoration(
                           labelText: 'Senha',
                           labelStyle: TextStyle(color: AppColors.textColor),
+                          suffixIcon: Padding(
+                            child: IconButton(
+                              icon: Icon(
+                                // Based on passwordVisible state choose the icon
+                                _obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                // Update the state i.e. toogle the state of passwordVisible variable
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
+                            ),
+                            padding: EdgeInsets.all(5),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(60),
                           ),
@@ -161,6 +179,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           }
                           return null;
                         },
+                        onChanged: (value) => password = value,
                       ),
                     ),
                     SizedBox(
