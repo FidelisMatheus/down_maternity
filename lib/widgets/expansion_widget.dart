@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 
-class ExpansionWidget extends StatefulWidget {
-  final String title;
-  late bool expand;
+import '../model/topic.dart';
 
-  ExpansionWidget({
+class ExpansionWidget extends StatefulWidget {
+  final Topic topic;
+
+  const ExpansionWidget({
     Key? key,
-    required this.title,
-    required this.expand,
+    required this.topic,
   }) : super(key: key);
 
   @override
@@ -26,14 +26,14 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
       children: [
         Container(
           width: Dimensions.width350,
-          height: 50,
+          height: Dimensions.height70,
           decoration: BoxDecoration(
-              borderRadius: widget.expand
+              borderRadius: widget.topic.expand
                   ? BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
+                      topLeft: Radius.circular(Dimensions.radius10),
+                      topRight: Radius.circular(Dimensions.radius10),
                     )
-                  : BorderRadius.all(Radius.circular(8)),
+                  : BorderRadius.all(Radius.circular(Dimensions.radius10)),
               boxShadow: const [
                 BoxShadow(
                   color: Colors.grey,
@@ -45,23 +45,20 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      widget.title,
-                      style: TextStyle(
-                        fontFamily: 'Open Sans',
-                        fontWeight: FontWeight.w800,
-                        fontSize: Dimensions.font16,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+              Container(
+                alignment: Alignment.center,
+                width: Dimensions.width250,
+                child: Text(
+                  widget.topic.title,
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontWeight: FontWeight.w600,
+                    fontSize: Dimensions.font16,
                   ),
-                  Icon(Icons.arrow_drop_down_outlined),
-                ],
+                  textAlign: TextAlign.center,
+                ),
               ),
+              Icon(Icons.arrow_drop_down_outlined),
               IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.check_box_outline_blank),
@@ -69,42 +66,46 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
             ],
           ),
         ),
-        widget.expand == true
+        widget.topic.expand == true
             ? Container(
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.fromLTRB(
+                      Dimensions.height20,
+                      Dimensions.width10,
+                      Dimensions.height20,
+                      Dimensions.width10,
+                    ),
                     child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac est dignissim, tincidunt quam a, tristique ex. Phasellus leo sem, vehicula et tristique in, tempor ullamcorper nisl. Aliquam semper condimentum justo, vel sollicitudin tellus sagittis in. Sed placerat metus sit amet felis ultrices molestie. ",
+                      widget.topic.text,
                       style: TextStyle(
                         fontFamily: 'Open Sans',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
+                        fontSize: Dimensions.font18,
                       ),
                       textAlign: TextAlign.justify,
                     ),
                   ),
                 ),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                    ),
-                    // ignore: prefer_const_literals_to_create_immutables
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 2.0,
-                        offset: Offset(2.0, 5.0),
-                      )
-                    ],
-                    color: AppColors.yellowColor),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(Dimensions.radius10),
+                    bottomRight: Radius.circular(Dimensions.radius10),
+                  ),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 2.0,
+                      offset: Offset(2.0, 5.0),
+                    )
+                  ],
+                  color: AppColors.yellowColor,
+                ),
                 width: Dimensions.width350,
-                margin: EdgeInsets.only(bottom: 20),
+                margin: EdgeInsets.only(bottom: Dimensions.width20),
               )
             : SizedBox(
-                height: 20,
-              )
+                height: Dimensions.height20,
+              ),
       ],
     );
   }
