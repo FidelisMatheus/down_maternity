@@ -26,7 +26,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
       children: [
         Container(
           width: Dimensions.width350,
-          height: Dimensions.height50,
+          height: Dimensions.height70,
           decoration: BoxDecoration(
               borderRadius: widget.topic.expand
                   ? BorderRadius.only(
@@ -91,8 +91,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                     bottomLeft: Radius.circular(Dimensions.radius10),
                     bottomRight: Radius.circular(Dimensions.radius10),
                   ),
-                  // ignore: prefer_const_literals_to_create_immutables
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.grey,
                       blurRadius: 2.0,

@@ -45,12 +45,15 @@ class _DetailsPageState extends State<DetailsPage> {
                 Container(
                   child: Image.asset('images/detalhes.png'),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(Dimensions.radius30),
+                      bottomLeft: Radius.circular(Dimensions.radius30),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 40,
-                  height: 40,
+                  width: Dimensions.height50,
+                  height: Dimensions.height50,
                   margin: EdgeInsets.only(
                     right: Dimensions.width350,
                   ),
@@ -61,7 +64,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     icon: Icon(
                       Icons.chevron_left_rounded,
                       color: Colors.white,
-                      size: 40,
+                      size: Dimensions.iconSize40,
                     ),
                   ),
                 ),
@@ -84,7 +87,7 @@ class _DetailsPageState extends State<DetailsPage> {
               },
             ),
             SizedBox(
-              height: 40,
+              height: Dimensions.height40,
             ),
           ],
         ),

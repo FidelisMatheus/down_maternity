@@ -24,7 +24,7 @@ class ListTopics extends GetxController {
           false,
         ),
         Topic(
-          'Quais são os sintomas observáveis?',
+          'Quais são os características observáveis?',
           "Dentre os sinais físicos pode-se citar: olhos oblíquos; rosto arredondado; língua protusa (para fora da boca); raiz nasal achatada; baixa estatura; mãos pequenas e dedos curtos; flacidez muscular (hipotonia); prega palmar única; e dobras da pele nos cantos internos. Outros sintomas observáveis são o comprometimento intelectual; obesidade; disfunções cardiovasculares, musculares e pulmonares; bem como maior propensão do desenvolvimento de diabetes. \n\n    Não se atribuem graus à SD. As diferenças entre as pessoas com SD, tanto do aspecto físico quanto de desenvolvimento, decorrem de aspectos genéticos individuais, intercorrências clínicas, estimulação, educação, nutrição, contexto familiar, e social.",
           false,
           false,
@@ -36,20 +36,14 @@ class ListTopics extends GetxController {
           false,
         ),
         Topic(
-          'Teste 4',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'Por que Acontece?',
+          "   A Síndrome de Down ocorre ao acaso e não se sabe ao certo os motivos que levam ao surgimento da alteração. A síndrome existe em todas as etnias e classes sociais. Embora se saiba que a chance de síndrome de Down aumente com a idade materna, 80% das crianças com síndrome de Down nascem de mulheres com menos de 35 anos. As mulheres mais jovens em idade fértil têm mais filhos do que mães em idade avançada",
           false,
           false,
         ),
         Topic(
-          'Teste 2',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-          false,
-          false,
-        ),
-        Topic(
-          'Teste 2',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'Será que vai acontecer de novo em uma próxima gravidez?',
+          "   A alteração genética ocorre ao acaso por isso provavelmente não ocorrerá novamente. Porém, não é possível afirmar com certeza, já que é ao acaso ou em alguns casos um dos pais é portador equilibrado da translocação do 21, mas para saber com mais detalhes é importante consultar um médico geneticista para estimar os riscos.",
           false,
           false,
         ),
@@ -57,26 +51,14 @@ class ListTopics extends GetxController {
     } else if (id == 2) {
       return listTopics2 = [
         Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'Suspeita e Diagnóstico',
+          "   Antes do nascimento: Alguns exames são realizados durante a gestão para o acompanhamento do desenvolvimento do bebê, alguns deles, quando alterados, podem indiciar a presença da SD. Dentre eles, os exames de imagens, transluscência nucal e exames de sangue, como aumento de PAPP-A materno e Beta-HCG. Para a confirmação, é necessário coletar células do bebê ainda na barriga e realizar o exame genético (cariótipo). \n\n    Após o nascimento: Após o nascimento é possível fazer o diagnóstico por meio do exame clínico - com base nos sinais e sintomas da SD – bem como, com base no teste genético (cariótipo)",
           false,
           false,
         ),
         Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-          false,
-          false,
-        ),
-        Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-          false,
-          false,
-        ),
-        Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'A Síndrome de Down pode ser curada?',
+          "   A síndrome de Down é uma condição permanente que não pode ser modificada. Não é considerada doença, por isso não se fala em cura. Como qualquer outra criança, os bebês têm variados tipos de habilidades e dificuldades. \n\n   As dificuldades podem ser inimizadas se a família e pessoas próximas tiverem uma atitude positiva em relação à síndrome de Down e ao futuro da criança.",
           false,
           false,
         ),
@@ -84,7 +66,7 @@ class ListTopics extends GetxController {
     } else if (id == 3) {
       return listTopics2 = [
         Topic(
-          'Teste 1 +',
+          'Gestação',
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
           false,
           false,
@@ -113,25 +95,19 @@ class ListTopics extends GetxController {
       return listTopics4 = [
         Topic(
           'Síndrome de Down e COVID-19',
-          "Em relação ao COVID-19, é importante o cuidado com qualquer faixa etária, principalmente, com o público de portadores de Síndrome de Down uma vez que estão mais propensos a desenvolverem algumas doenças, facilitando a infecção por esse vírus. Logo, o processo de cuidado durante a pandemia permanece de maneira significativo, dentre esses cuidados tem: 1) hábito de alimentação saudável; 2) Medidas de Higienização, como levar as mãos; 3)Atividade física ;4) Distância social; 5) cumprimento do calendário vacinal; 6) Medidas de proteção, como uso de máscaras",
+          "   Em relação ao COVID-19, é importante o cuidado com qualquer faixa etária, principalmente, com o público de portadores de Síndrome de Down uma vez que estão mais propensos a desenvolverem algumas doenças, facilitando a infecção por esse vírus. Logo, o processo de cuidado durante a pandemia permanece de maneira significativo, dentre esses cuidados tem: 1) hábito de alimentação saudável; 2) Medidas de Higienização, como levar as mãos; 3)Atividade física ;4) Distância social; 5) cumprimento do calendário vacinal; 6) Medidas de proteção, como uso de máscaras",
           false,
           false,
         ),
         Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'Sobre os métodos de vacinação',
+          "   Os métodos de vacinação desenvolvidos são extremamente eficazes para minimizar o desenvolvimento da doença de maneira mais grave, convergindo em uma medida de proteção direta ou indireta contra a doença, ou seja, protegendo a pessoa que toma a vacina e a população devido ao fenômeno rebanho. Sendo assim, quanto maior o número de pessoas que se vacinam em uma população menor será a incidência da doença nessa comunidade.",
           false,
           false,
         ),
         Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-          false,
-          false,
-        ),
-        Topic(
-          'Teste 1 +',
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+          'Importancia da vacinação',
+          "   É importante a vacinação correta das pessoas portadoras de síndrome de Down tanto menores do que 40 anos quanto maiores do que 40 anos com o objetivo de minimizar os riscos advindos do COVID-19 em associação com as doenças que podem acompanhar a pessoa com síndrome de Down.",
           false,
           false,
         ),
