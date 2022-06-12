@@ -13,11 +13,13 @@ import '../model/list_topics.dart';
 class DetailsPage extends StatefulWidget {
   final int id;
   final String title;
+  final String image;
 
   const DetailsPage({
     Key? key,
     required this.id,
     required this.title,
+    required this.image,
   }) : super(key: key);
 
   @override
@@ -43,7 +45,13 @@ class _DetailsPageState extends State<DetailsPage> {
             Stack(
               children: [
                 Container(
-                  child: Image.asset('images/detalhes.png'),
+                  width: double.maxFinite,
+                  height: Dimensions.detailsImgSize,
+                  padding: EdgeInsets.only(bottom: Dimensions.height30),
+                  child: Image.asset(
+                    widget.image,
+                    fit: BoxFit.cover,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(Dimensions.radius30),

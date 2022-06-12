@@ -21,7 +21,7 @@ class BigCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.getDetailsScreen(id, title));
+        Navigator.pushNamed(context, Routes.getDetailsScreen(id, title, image));
       },
       child: Container(
         width: Dimensions.cardWidth,
@@ -39,13 +39,13 @@ class BigCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    width: 130,
-                    height: 100,
+                    width: 150,
+                    height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                         image: AssetImage(image),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.scaleDown,
                       ),
                     )),
                 SizedBox(

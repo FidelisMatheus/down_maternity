@@ -22,7 +22,8 @@ class Routes {
   static String getRegisterScreen() => registerUserScreen;
   static String getAboutScreen() => aboutScreen;
 
-  static String getDetailsScreen(int id, String title) => '$detailsScreen?id=$id&title=$title';
+  static String getDetailsScreen(int id, String title, String pathImage) =>
+      '$detailsScreen?id=$id&title=$title&path=$pathImage';
 
   static List<GetPage> routes = [
     GetPage(
@@ -50,7 +51,12 @@ class Routes {
       page: () {
         var id = Get.parameters['id'];
         var title = Get.parameters['title'];
-        return DetailsPage(id: int.parse(id!), title: title!);
+        var path = Get.parameters['path'];
+        return DetailsPage(
+          id: int.parse(id!),
+          title: title!,
+          image: path!,
+        );
       },
     ),
   ];
