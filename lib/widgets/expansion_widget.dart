@@ -82,7 +82,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                         fontFamily: 'Open Sans',
                         fontSize: Dimensions.font18,
                       ),
-                      textAlign: TextAlign.justify,
+                      textAlign: widget.topic.text.contains('•', 0) ? TextAlign.start : TextAlign.justify,
                     ),
                   ),
                 ),

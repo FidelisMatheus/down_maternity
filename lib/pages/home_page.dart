@@ -65,37 +65,6 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: Dimensions.height20,
               ),
-              Row(
-                children: [
-                  Text(
-                    'Mais ',
-                    style: TextStyle(
-                      fontSize: Dimensions.font18,
-                    ),
-                  ),
-                  Text(
-                    'Acessados',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: Dimensions.font18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: Dimensions.height20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SmallCardWidget(text: 'Titulo'),
-                  SmallCardWidget(text: 'Titulo'),
-                  SmallCardWidget(text: 'Titulo'),
-                  SmallCardWidget(text: 'Titulo'),
-                  SmallCardWidget(text: 'Titulo'),
-                ],
-              ),
               SizedBox(
                 height: Dimensions.height20,
               ),
@@ -136,6 +105,11 @@ class _HomePageState extends State<HomePage> {
                           id: 2,
                           image: 'images/logo.jpg',
                           title: 'Cuidados Gerais',
+                        ),
+                        BigCardWidget(
+                          id: 3,
+                          image: 'images/logo.jpg',
+                          title: 'Recomendações',
                         ),
                         BigCardWidget(
                           id: 4,
