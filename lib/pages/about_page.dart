@@ -7,8 +7,8 @@ import 'package:projeto_sindrome_down/utils/dimensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SobrePage extends StatelessWidget {
-  const SobrePage({Key? key}) : super(key: key);
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
