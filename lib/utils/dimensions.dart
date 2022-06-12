@@ -52,7 +52,7 @@ class Dimensions {
   static double listViewTextContSize = screenWidth / 3.9;
 
   //dimensions on popular food_detail - tela 844
-  static double popularFoodImgSize = screenHeight / 2.41;
+  static double detailsImgSize = screenHeight / 2.41;
 
   //bottom height 844(tela iphone - 12 / 120)
   static double bottomHeightBar = screenHeight / 7.03;
