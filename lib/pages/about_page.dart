@@ -5,8 +5,8 @@ import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 
-class SobrePage extends StatelessWidget {
-  const SobrePage({Key? key}) : super(key: key);
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

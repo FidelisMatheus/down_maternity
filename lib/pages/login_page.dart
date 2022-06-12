@@ -73,14 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                         filled: true,
                         fillColor: Colors.white,
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'O e-mail é obrigatório';
-                        } else {
-                          _email = value;
-                        }
-                        return null;
-                      },
+                      validator: _validarEmail,
+                      onSaved: (value) => _email = value,
                     ),
                     SizedBox(height: 20),
                     TextFormField(
@@ -131,6 +125,13 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) => Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
                             Authentication()
                                 .signIn(email: _email!, password: _password!)
                                 .then((result) {
@@ -176,7 +177,9 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.offNamed(Routes.forgotPassworScreen);
+                  },
                   child: SizedBox(
                     width: Dimensions.width350,
                     child: Center(
@@ -218,5 +221,18 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+}
+
+String? _validarEmail(String? value) {
+  String pattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+  RegExp regExp = RegExp(pattern);
+  if (value!.isEmpty) {
+    return "Informe o Email";
+  } else if (!regExp.hasMatch(value)) {
+    return "Email inválido";
+  } else {
+    return null;
   }
 }
