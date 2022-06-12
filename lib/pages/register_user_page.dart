@@ -18,6 +18,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   final _formKey = GlobalKey<FormState>();
 
   String? email;
+  String? mobilephone;
   String? password;
   String? name;
   bool _obscureText = false;
@@ -144,6 +145,28 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: TextFormField(
+                        keyboardType: TextInputType.phone,
+                        decoration: InputDecoration(
+                          labelText: 'Celular',
+                          labelStyle: TextStyle(color: AppColors.textColor),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(60),
+                          ),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'O celular é obrigatório';
+                          } else {
+                            mobilephone = value;
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: TextFormField(
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: !_obscureText,
                         decoration: InputDecoration(
@@ -210,7 +233,12 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           _formKey.currentState!.save();
 
                           Authentication()
-                              .signUp(email: email!, password: password!)
+                              .signUp(
+                            email: email!,
+                            password: password!,
+                            name: name!,
+                            mobilephone: mobilephone!,
+                          )
                               .then((result) {
                             if (result == null) {
                               Get.offNamed(Routes.initial);
