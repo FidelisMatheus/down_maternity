@@ -5,7 +5,7 @@ import 'package:projeto_sindrome_down/pages/details_page.dart';
 import 'package:projeto_sindrome_down/pages/home_page.dart';
 import 'package:projeto_sindrome_down/pages/login_page.dart';
 import 'package:projeto_sindrome_down/pages/register_user_page.dart';
-import 'package:projeto_sindrome_down/pages/sobre_page.dart';
+import 'package:projeto_sindrome_down/pages/about_page.dart';
 import 'package:projeto_sindrome_down/pages/splash/splash_screen.dart';
 
 class Routes {
@@ -44,7 +44,7 @@ class Routes {
     ),
     GetPage(
       name: aboutScreen,
-      page: () => SobrePage(),
+      page: () => AboutPage(),
     ),
     GetPage(
       name: detailsScreen,
