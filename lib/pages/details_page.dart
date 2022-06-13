@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
+import 'package:projeto_sindrome_down/utils/appcolors.dart';
 
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 import 'package:projeto_sindrome_down/widgets/expansion_widget.dart';
@@ -71,7 +72,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     },
                     icon: Icon(
                       Icons.chevron_left_rounded,
-                      color: Colors.white,
+                      color: AppColors.blueColor,
                       size: Dimensions.iconSize40,
                     ),
                   ),

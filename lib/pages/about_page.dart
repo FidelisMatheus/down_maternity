@@ -23,18 +23,15 @@ class AboutPage extends StatelessWidget {
                   padding: EdgeInsets.only(left: Dimensions.height10),
                   child: IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, Routes.initial);
+                      Navigator.pushNamed(context, Routes.homeScreen);
                     },
-                    icon: Icon(Icons.arrow_back_ios),
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
                   ),
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    color: Colors.white.withOpacity(0.5),
-                  ),
                   margin: EdgeInsets.only(
                       top: Dimensions.height10, left: Dimensions.height10),
                 ),
