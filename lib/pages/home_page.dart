@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/widgets/big_card_widget.dart';
 import '../utils/dimensions.dart';
@@ -57,6 +59,16 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, Routes.aboutScreen);
                       },
                       icon: const Icon(Icons.info),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Authentication().signOut().then(
+                              (value) => Get.offNamed(Routes.initial),
+                            );
+                      },
+                      icon: Icon(
+                        Icons.logout,
+                      ),
                     ),
                   ],
                 ),
