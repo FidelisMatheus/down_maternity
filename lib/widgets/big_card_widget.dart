@@ -39,13 +39,13 @@ class BigCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    width: 150,
-                    height: 200,
+                    width: 160,
+                    height: 172,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(0),
                       image: DecorationImage(
                         image: AssetImage(image),
-                        fit: BoxFit.scaleDown,
+                        fit: BoxFit.cover,
                       ),
                     )),
                 SizedBox(
@@ -53,6 +53,7 @@ class BigCardWidget extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 140,
+                  height: 80,
                   child: Text(
                     title,
                     textAlign: TextAlign.center,

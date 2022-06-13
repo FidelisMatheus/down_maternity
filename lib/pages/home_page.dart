@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/widgets/big_card_widget.dart';
-import 'package:projeto_sindrome_down/widgets/small_card_widget.dart';
 import '../utils/dimensions.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,16 +69,16 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
+                  // Text(
+                  //   'Todas ',
+                  //   style: TextStyle(
+                  //     fontSize: Dimensions.font18,
+                  //     fontFamily: 'Roboto',
+                  //     fontWeight: FontWeight.normal,
+                  //   ),
+                  // ),
                   Text(
-                    'Todas ',
-                    style: TextStyle(
-                      fontSize: Dimensions.font18,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Text(
-                    'Informações',
+                    'Temas',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: Dimensions.font18,
