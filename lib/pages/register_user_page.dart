@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
@@ -132,19 +133,16 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                           ),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'O e-mail é obrigatório';
-                          } else {
-                            email = value;
-                          }
-                          return null;
-                        },
+                        validator: _validarEmail,
+                        onSaved: (value) => email = value,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: TextFormField(
+                        inputFormatters: [
+                          MaskTextInputFormatter(mask: "(##) # ####-####"),
+                        ],
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           labelText: 'Celular',
@@ -280,5 +278,18 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         ),
       ),
     );
+  }
+}
+
+String? _validarEmail(String? value) {
+  String pattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+  RegExp regExp = RegExp(pattern);
+  if (value!.isEmpty) {
+    return "Informe o Email";
+  } else if (!regExp.hasMatch(value)) {
+    return "Email inválido";
+  } else {
+    return null;
   }
 }

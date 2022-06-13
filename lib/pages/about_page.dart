@@ -65,189 +65,182 @@ class AboutPage extends StatelessWidget {
             color: AppColors.yellowColor,
           ),
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(color: AppColors.orangeColor),
-              child: ListView(
-                padding: EdgeInsets.fromLTRB(
-                  40,
-                  20,
-                  40,
-                  20,
+            child: ListView(
+              padding: EdgeInsets.fromLTRB(
+                40,
+                20,
+                40,
+                20,
+              ),
+              shrinkWrap: true,
+              children: [
+                const Text(
+                  'Saber exatamente quais são as questões de saúde que podem ocorrer com mais frequência em pessoas com síndrome de Down, conseguir diagnosticá-las de forma rápida e eficiente e buscar os tratamentos adequados são medidas essenciais para que indivíduos com a trissomia possam desfrutar de uma vida plena e saudável',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
-                shrinkWrap: true,
-                children: [
-                  const Text(
-                    'Saber exatamente quais são as questões de saúde que podem ocorrer com mais frequência em pessoas com síndrome de Down, conseguir diagnosticá-las de forma rápida e eficiente e buscar os tratamentos adequados são medidas essenciais para que indivíduos com a trissomia possam desfrutar de uma vida plena e saudável',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.justify,
+                SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'O Down Maternity é um aplicativo que contém informações sobre crianças com Síndrome de Down, nele será encontrado tópicos e com uma opção de marcação para os já vizualizados.',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
                   ),
-                  SizedBox(
-                    height: 10,
+                  textAlign: TextAlign.justify,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Foi desenvolvido como projeto para a disciplina "Programação para dispositivos móveis".',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
                   ),
-                  const Text(
-                    'O Down Maternity é um aplicativo que contém informações sobre crianças com Síndrome de Down, nele será encontrado tópicos e com uma opção de marcação para os já vizualizados.',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Foi desenvolvido como projeto para a disciplina "Programação para dispositivos móveis".',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Desenvolvido por:',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                          shadows: const <Shadow>[
-                            Shadow(
-                              offset: Offset(2, 2),
-                              blurRadius: 3.0,
-                              color: Color.fromARGB(100, 0, 0, 0),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                child: Icon(
-                                  FontAwesomeIcons.linkedin,
-                                  color: Colors.white,
-                                  size: 35,
-                                ),
-                                onTap: () => launchUrl(
-                                  Uri.parse(
-                                      'https://www.linkedin.com/in/lucas-cruzz/'),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 60,
-                                child: Text(
-                                  'Lucas Cruz',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w300,
-                                    shadows: const <Shadow>[
-                                      Shadow(
-                                        offset: Offset(2, 2),
-                                        blurRadius: 3.0,
-                                        color: Color.fromARGB(100, 0, 0, 0),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              InkWell(
-                                child: Icon(
-                                  FontAwesomeIcons.linkedin,
-                                  color: Colors.white,
-                                  size: 35,
-                                ),
-                                onTap: () => launchUrl(
-                                  Uri.parse(
-                                      'https://www.linkedin.com/in/matheus-fidelis/'),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 60,
-                                child: Text(
-                                  'Matheus Fidelis',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w300,
-                                    shadows: const <Shadow>[
-                                      Shadow(
-                                        offset: Offset(2, 2),
-                                        blurRadius: 3.0,
-                                        color: Color.fromARGB(100, 0, 0, 0),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              InkWell(
-                                child: Icon(
-                                  FontAwesomeIcons.linkedin,
-                                  color: Colors.white,
-                                  size: 35,
-                                ),
-                                onTap: () => launchUrl(
-                                  Uri.parse(
-                                      'https://www.linkedin.com/in/leonardo-garroni'),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 60,
-                                child: Text(
-                                  'Leonardo Garroni',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w300,
-                                    shadows: const <Shadow>[
-                                      Shadow(
-                                        offset: Offset(2, 2),
-                                        blurRadius: 3.0,
-                                        color: Color.fromARGB(100, 0, 0, 0),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                  textAlign: TextAlign.justify,
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Desenvolvido por:',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        shadows: const <Shadow>[
+                          Shadow(
+                            offset: Offset(2, 2),
+                            blurRadius: 3.0,
+                            color: Color.fromARGB(100, 0, 0, 0),
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://www.linkedin.com/in/lucas-cruzz/'),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                'Lucas Cruz',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  shadows: const <Shadow>[
+                                    Shadow(
+                                      offset: Offset(2, 2),
+                                      blurRadius: 3.0,
+                                      color: Color.fromARGB(100, 0, 0, 0),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://www.linkedin.com/in/matheus-fidelis/'),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                'Matheus Fidelis',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  shadows: const <Shadow>[
+                                    Shadow(
+                                      offset: Offset(2, 2),
+                                      blurRadius: 3.0,
+                                      color: Color.fromARGB(100, 0, 0, 0),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://www.linkedin.com/in/leonardo-garroni'),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                'Leonardo Garroni',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  shadows: const <Shadow>[
+                                    Shadow(
+                                      offset: Offset(2, 2),
+                                      blurRadius: 3.0,
+                                      color: Color.fromARGB(100, 0, 0, 0),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
