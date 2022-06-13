@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
@@ -92,6 +93,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           ? listTopics[index].check = true
                           : listTopics[index].check;
                     });
+                    Authentication().updateTopic();
                   },
                   onDoubleTap: () {
                     setState(() {
@@ -99,6 +101,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           ? listTopics[index].check = false
                           : listTopics[index].check;
                     });
+
+                    Authentication().updateTopic();
                   },
                   child: ExpansionWidget(
                     topic: listTopics[index],
