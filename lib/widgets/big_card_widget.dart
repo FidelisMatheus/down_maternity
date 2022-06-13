@@ -8,17 +8,20 @@ import 'package:projeto_sindrome_down/utils/dimensions.dart';
 class BigCardWidget extends StatelessWidget {
   final String image;
   final String title;
+  final int id;
+
   const BigCardWidget({
     Key? key,
     required this.image,
     required this.title,
+    required this.id,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.getDetailsScreen(1, title));
+        Navigator.pushNamed(context, Routes.getDetailsScreen(id, title, image));
       },
       child: Container(
         width: Dimensions.cardWidth,
@@ -36,13 +39,13 @@ class BigCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    width: 130,
-                    height: 100,
+                    width: 160,
+                    height: 172,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(0),
                       image: DecorationImage(
                         image: AssetImage(image),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     )),
                 SizedBox(
@@ -50,6 +53,7 @@ class BigCardWidget extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 140,
+                  height: 80,
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
