@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -193,10 +193,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Center(
-                  child: Divider(
-                    color: Colors.white.withOpacity(0.5),
-                  ),
+                SizedBox(
+                  height: Dimensions.height20,
                 ),
                 GestureDetector(
                   onTap: () {
