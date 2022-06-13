@@ -41,7 +41,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                   offset: Offset(2.0, 5.0),
                 )
               ],
-              color: AppColors.yellowColor),
+              color: AppColors.whiteColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -58,10 +58,28 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              Icon(Icons.arrow_drop_down_outlined),
+              Icon(
+                widget.topic.expand
+                    ? Icons.arrow_drop_up_outlined
+                    : Icons.arrow_drop_down_outlined,
+              ),
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.check_box_outline_blank),
+                onPressed: () {
+                  setState(() {
+                    !widget.topic.check
+                        ? widget.topic.check = true
+                        : widget.topic.check;
+                  });
+                },
+                icon: widget.topic.check
+                    ? Icon(
+                        Icons.check_box_outlined,
+                        color: AppColors.yellowColor,
+                      )
+                    : Icon(
+                        Icons.check_box_outline_blank,
+                        color: AppColors.yellowColor,
+                      ),
               ),
             ],
           ),
@@ -82,7 +100,9 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                         fontFamily: 'Open Sans',
                         fontSize: Dimensions.font18,
                       ),
-                      textAlign: widget.topic.text.contains('•', 0) ? TextAlign.start : TextAlign.justify,
+                      textAlign: widget.topic.text.contains('•', 0)
+                          ? TextAlign.start
+                          : TextAlign.justify,
                     ),
                   ),
                 ),
@@ -98,7 +118,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                       offset: Offset(2.0, 5.0),
                     )
                   ],
-                  color: AppColors.yellowColor,
+                  color: AppColors.whiteColor,
                 ),
                 width: Dimensions.width350,
                 margin: EdgeInsets.only(bottom: Dimensions.width20),

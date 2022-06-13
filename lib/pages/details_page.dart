@@ -87,6 +87,17 @@ class _DetailsPageState extends State<DetailsPage> {
                   onTap: () {
                     setState(() {
                       listTopics[index].expand = !listTopics[index].expand;
+
+                      !listTopics[index].check
+                          ? listTopics[index].check = true
+                          : listTopics[index].check;
+                    });
+                  },
+                  onDoubleTap: () {
+                    setState(() {
+                      listTopics[index].check
+                          ? listTopics[index].check = false
+                          : listTopics[index].check;
                     });
                   },
                   child: ExpansionWidget(
