@@ -83,17 +83,14 @@ class Authentication {
     }
   }
 
-  Future<String?> updateTopic() async {
+  Future<String?> updateTopic(String id, List<Topic> topics) async {
     try {
       CollectionReference userRef =
           FirebaseFirestore.instance.collection('users');
 
       await userRef.doc(_auth.currentUser!.uid).update(
         {
-          'listTopics1': listTopics1.map((x) => x.toMap()).toList(),
-          'listTopics2': listTopics2.map((x) => x.toMap()).toList(),
-          'listTopics3': listTopics3.map((x) => x.toMap()).toList(),
-          'listTopics4': listTopics4.map((x) => x.toMap()).toList()
+          'listTopics$id': topics.map((x) => x.toMap()).toList(),
         },
       );
 
