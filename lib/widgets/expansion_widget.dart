@@ -73,11 +73,11 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                 },
                 icon: widget.topic.check
                     ? Icon(
-                        Icons.check_box_outlined,
+                        Icons.check_box_rounded,
                         color: AppColors.yellowColor,
                       )
                     : Icon(
-                        Icons.check_box_outline_blank,
+                        Icons.check_box_outline_blank_rounded,
                         color: AppColors.yellowColor,
                       ),
               ),
