@@ -102,7 +102,7 @@ class _ExpansionWidgetState extends State<ExpansionWidget> {
                       ),
                       textAlign: widget.topic.text.contains('•', 0)
                           ? TextAlign.start
-                          : TextAlign.justify,
+                          : TextAlign.left,
                     ),
                   ),
                 ),

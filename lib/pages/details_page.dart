@@ -50,7 +50,6 @@ class _DetailsPageState extends State<DetailsPage> {
                 Container(
                   width: double.maxFinite,
                   height: Dimensions.detailsImgSize,
-                  padding: EdgeInsets.only(bottom: Dimensions.height30),
                   child: Image.asset(
                     widget.image,
                     fit: BoxFit.cover,
@@ -80,6 +79,19 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: Dimensions.height20, top: Dimensions.height10),
+              child: Text(
+                widget.title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.whiteColor,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
             FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
               future: collection.doc(_auth.currentUser!.uid).get(),

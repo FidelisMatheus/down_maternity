@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
@@ -26,20 +23,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var collection = FirebaseFirestore.instance.collection('users');
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // final _searchview = TextEditingController();
-
-  // final controller = FloatingSearchBarController();
-
-  // late bool _firstSearch = true;
-  // late String _query = "";
-
-  List<Topic> _nebulae = [];
-//  List<String> _filterList = [];
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  final List<Topic> _nebulae = [];
 
   @override
   Widget build(BuildContext context) {
@@ -269,6 +253,8 @@ class MyDelegate extends SearchDelegate {
   final List<Topic> _nebulae;
 
   MyDelegate(this._nebulae);
+
+  var text = '';
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
         onPressed: () => close(
@@ -293,14 +279,58 @@ class MyDelegate extends SearchDelegate {
         ),
       ];
 
-//aqui voce pode fazer o método para redirecionar para a página do topico
+//aqui vou estilzar a página com as informações buscadas
   @override
-  Widget buildResults(BuildContext context) => Center(
-        child: Text(
-          query,
-          style: const TextStyle(
-            fontSize: 20,
-          ),
+  Widget buildResults(BuildContext context) => Container(
+        color: AppColors.mainColor,
+        height: double.infinity,
+        width: double.infinity,
+        child: ListView(
+          children: [
+            Center(
+              child: Container(
+                margin: EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: AppColors.whiteColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: const Offset(
+                        3.0,
+                        3.0,
+                      ),
+                      blurRadius: 4.0,
+                      spreadRadius: 3.0,
+                    ), //Bo/BoxShadow
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      query,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24),
+                      child: Text(
+                        text,
+                        style: const TextStyle(
+                          fontSize: 20,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       );
 
@@ -311,20 +341,43 @@ class MyDelegate extends SearchDelegate {
       final input = query.toLowerCase();
       return result.contains(input);
     }).toList();
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: suggestions.length,
-      itemBuilder: (context, index) {
-        final suggestion = suggestions[index];
+    return Container(
+      color: AppColors.mainColor,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: suggestions.length,
+        itemBuilder: (context, index) {
+          final suggestion = suggestions[index];
 
-        return ListTile(
-          title: Text(suggestion.title),
-          onTap: () {
-            query = suggestion.title;
-            showResults(context);
-          },
-        );
-      },
+          return Container(
+            margin: EdgeInsets.fromLTRB(8, 8, 8, 6),
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: AppColors.whiteColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: const Offset(
+                    3.0,
+                    3.0,
+                  ),
+                  blurRadius: 4.0,
+                  spreadRadius: 3.0,
+                ), //Bo/BoxShadow
+              ],
+            ),
+            child: ListTile(
+              title: Text(suggestion.title),
+              onTap: () {
+                query = suggestion.title;
+                text = suggestion.text;
+                showResults(context);
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
