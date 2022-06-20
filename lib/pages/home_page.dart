@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -200,9 +198,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     }
 
                     var _valorPercent = (_qtdCheck / 21);
-                    var _percent = _qtdCheck == 21
-                        ? (_valorPercent * 100)
-                        : (_valorPercent * 100).toStringAsPrecision(2);
+                    var _percent =
+                        _qtdCheck == 21 ? (_valorPercent * 100) : (_valorPercent * 100).toStringAsPrecision(2);
 
                     return CircularPercentIndicator(
                       radius: 60.0,
@@ -211,8 +208,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       percent: _valorPercent,
                       center: Text(
                         "$_percent%",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20.0),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
                       footer: Padding(
                         padding: const EdgeInsets.fromLTRB(
@@ -222,12 +218,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           30,
                         ),
                         child: Text(
-                          _percent == 100
-                              ? 'Parabéns você concluiu seu aprendizado!!!'
-                              : 'Percentual de Aprendizado',
+                          _percent == 100 ? 'Parabéns você concluiu seu aprendizado!!!' : 'Percentual de Aprendizado',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 17.0),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
                         ),
                       ),
                       circularStrokeCap: CircularStrokeCap.round,

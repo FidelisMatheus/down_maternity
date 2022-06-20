@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, unused_field
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projeto_sindrome_down/auth/authentication.dart';
@@ -120,9 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: IconButton(
                             icon: Icon(
                               // Based on passwordVisible state choose the icon
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                              _passwordVisible ? Icons.visibility : Icons.visibility_off,
                             ),
                             onPressed: () {
                               // Update the state i.e. toogle the state of passwordVisible variable
@@ -160,14 +156,11 @@ class _LoginPageState extends State<LoginPage> {
                                 child: CircularProgressIndicator(),
                               ),
                             );
-                            Authentication()
-                                .signIn(email: _email!, password: _password!)
-                                .then((result) {
+                            Authentication().signIn(email: _email!, password: _password!).then((result) {
                               if (result == null) {
                                 Get.offNamed(Routes.homeScreen);
                               } else {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(SnackBar(
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                   content: Text(
                                     result,
                                     style: TextStyle(fontSize: 16),
@@ -189,10 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         child: Text(
                           'Entrar',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textColor),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.textColor),
                         ),
                       ),
                     ),
