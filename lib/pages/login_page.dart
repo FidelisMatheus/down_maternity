@@ -39,17 +39,45 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               child: Center(
-                child: Text(
-                  'Faça Login',
-                  style: TextStyle(
-                    color: AppColors.yellowColor,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'images/logo.jpg',
+                      width: 100,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Down Maternity',
+                      style: TextStyle(
+                        fontFamily: 'Open Sans',
+                        color: AppColors.yellowColor,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            SizedBox(height: 100),
+            SizedBox(
+              height: Dimensions.height40,
+            ),
+            Text(
+              'Faça Login',
+              style: TextStyle(
+                fontFamily: 'Open Sans',
+                color: AppColors.whiteColor,
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: Dimensions.height40,
+            ),
             Form(
               key: _formKey,
               child: SizedBox(
