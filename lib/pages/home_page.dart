@@ -7,6 +7,7 @@ import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
+import 'package:projeto_sindrome_down/widgets/big_card_calendar_widget.dart';
 import 'package:projeto_sindrome_down/widgets/big_card_widget.dart';
 import '../utils/dimensions.dart';
 
@@ -125,6 +126,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           id: 4,
                           image: 'images/covid.jpg',
                           title: 'Síndrome de Down x COVID-19',
+                        ),
+                        BigCardCalendarWidget(
+                          image: 'images/calendartopic.jpg',
+                          title: 'Calendário Vacinal',
                         ),
                       ],
                     ),

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:projeto_sindrome_down/pages/calendar_page.dart';
 import 'package:projeto_sindrome_down/pages/details_page.dart';
 import 'package:projeto_sindrome_down/pages/forgot_password_page.dart';
 import 'package:projeto_sindrome_down/pages/home_page.dart';
@@ -17,6 +18,7 @@ class Routes {
   static const String aboutScreen = '/about';
   static const String detailsScreen = '/details';
   static const String registerUserScreen = '/register';
+  static const String calendarScreen = '/calendar';
 
   static String getSplashScreen() => splashScreen;
   static String getInitial() => initial;
@@ -24,6 +26,8 @@ class Routes {
   static String getHomeScreen() => homeScreen;
   static String getRegisterScreen() => registerUserScreen;
   static String getAboutScreen() => aboutScreen;
+
+  static String getCalendarScreen(String title, String pathImage) => '$calendarScreen?title=$title&path=$pathImage';
 
   static String getDetailsScreen(int id, String title, String pathImage) =>
       '$detailsScreen?id=$id&title=$title&path=$pathImage';
@@ -66,6 +70,18 @@ class Routes {
         var path = Get.parameters['path'];
         return DetailsPage(
           id: int.parse(id!),
+          title: title!,
+          image: path!,
+        );
+      },
+      transition: Transition.upToDown,
+    ),
+    GetPage(
+      name: calendarScreen,
+      page: () {
+        var title = Get.parameters['title'];
+        var path = Get.parameters['path'];
+        return CalendarPage(
           title: title!,
           image: path!,
         );
