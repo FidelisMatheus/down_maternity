@@ -82,19 +82,7 @@ class ListTopics extends GetxController {
         ),
         Topic(
           'Vamos fortalecer o corpo do seu filho?',
-          "Vacinas\n\n    A vacina é uma medida muito importante para a proteção contra várias doenças, não protegendo somente a criança, mas todo mundo ao redor.    É um método ativo que estimula a defesa do corpo humano com a produção de anticorpos, aumentando a defesa do corpo. Sendo assim, a depender da faixa etária, tem as indicações certas entre relação aos tipos de vacinas que devem ser tomadas.",
-          false,
-          false,
-        ),
-        Topic(
-          'Calendário Vacinal - Ao nascer à 4 meses',
-          "    ",
-          false,
-          false,
-        ),
-        Topic(
-          'Calendário Vacinal - 5 meses à 12 meses',
-          "    ",
+          "Vacinas\n\n    A vacina é uma medida muito importante para a proteção contra várias doenças, não protegendo somente a criança, mas todo mundo ao redor.    É um método ativo que estimula a defesa do corpo humano com a produção de anticorpos, aumentando a defesa do corpo. Sendo assim, a depender da faixa etária, tem as indicações certas entre relação aos tipos de vacinas que devem ser tomadas.\n\n   O calendário está disponível na aba Calendário Vacinal",
           false,
           false,
         ),
