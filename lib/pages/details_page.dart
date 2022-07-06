@@ -12,6 +12,8 @@ import 'package:projeto_sindrome_down/utils/appcolors.dart';
 import 'package:projeto_sindrome_down/utils/dimensions.dart';
 import 'package:projeto_sindrome_down/widgets/expansion_widget.dart';
 
+import '../model/list_topics.dart';
+
 class DetailsPage extends StatefulWidget {
   final int id;
   final String title;
@@ -30,12 +32,11 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   List<Topic> listTopics = [];
-  var collection = FirebaseFirestore.instance.collection('users');
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
     super.initState();
+    listTopics = ListTopics(id: widget.id).selectList();
   }
 
   @override
@@ -81,8 +82,7 @@ class _DetailsPageState extends State<DetailsPage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: Dimensions.height20, top: Dimensions.height10),
+              padding: EdgeInsets.only(bottom: Dimensions.height20, top: Dimensions.height10),
               child: Text(
                 widget.title,
                 textAlign: TextAlign.center,
@@ -93,107 +93,35 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
               ),
             ),
-            FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-              future: collection.doc(_auth.currentUser!.uid).get(),
-              builder: (_, snapshot) {
-                if (snapshot.hasError) return Text('Error = ${snapshot.error}');
-                if (snapshot.hasData) {
-                  var data = snapshot.data!.data();
-                  List<Topic> topics = [];
+            ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: listTopics.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      listTopics[index].expand = !listTopics[index].expand;
 
-                  if (widget.id == 1) {
-                    for (var item in data!['listTopics1']) {
-                      topics.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-                  }
+                      !listTopics[index].check ? listTopics[index].check = true : listTopics[index].check;
+                    });
+                    Authentication().updateTopic(
+                      widget.id.toString(),
+                      listTopics,
+                    );
+                  },
+                  onDoubleTap: () {
+                    setState(() {
+                      listTopics[index].check ? listTopics[index].check = false : listTopics[index].check;
+                    });
 
-                  if (widget.id == 2) {
-                    for (var item in data!['listTopics2']) {
-                      topics.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-                  }
-
-                  if (widget.id == 3) {
-                    for (var item in data!['listTopics3']) {
-                      topics.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-                  }
-
-                  if (widget.id == 4) {
-                    for (var item in data!['listTopics4']) {
-                      topics.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-                  }
-
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    itemCount: topics.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            topics[index].expand = !topics[index].expand;
-
-                            !topics[index].check
-                                ? topics[index].check = true
-                                : topics[index].check;
-                          });
-                          Authentication().updateTopic(
-                            widget.id.toString(),
-                            topics,
-                          );
-                        },
-                        onDoubleTap: () {
-                          setState(() {
-                            topics[index].check
-                                ? topics[index].check = false
-                                : topics[index].check;
-                          });
-
-                          Authentication().updateTopic(
-                            widget.id.toString(),
-                            topics,
-                          );
-                        },
-                        child: ExpansionWidget(
-                          topic: topics[index],
-                        ),
-                      );
-                    },
-                  );
-                }
-                return Center(
-                  child: CircularProgressIndicator.adaptive(
-                    backgroundColor: AppColors.whiteColor,
+                    Authentication().updateTopic(
+                      widget.id.toString(),
+                      listTopics,
+                    );
+                  },
+                  child: ExpansionWidget(
+                    topic: listTopics[index],
                   ),
                 );
               },

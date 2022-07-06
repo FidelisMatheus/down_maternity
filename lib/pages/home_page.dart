@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -146,99 +148,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
               SizedBox(height: Dimensions.height20),
-              FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                future: collection.doc(_auth.currentUser!.uid).get(),
-                builder: (_, snapshot) {
-                  if (snapshot.hasData) {
-                    var data = snapshot.data!.data();
-                    double _qtdCheck = 0;
-
-                    //aqui carregado todas as lista em uma só para pesquisa e incremento o contador de tópicos já visto
-                    for (var item in data!['listTopics1']) {
-                      item['check'] ? _qtdCheck++ : 0;
-                      _nebulae.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-
-                    for (var item in data['listTopics2']) {
-                      item['check'] ? _qtdCheck++ : 0;
-                      _nebulae.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-
-                    for (var item in data['listTopics3']) {
-                      item['check'] ? _qtdCheck++ : 0;
-                      _nebulae.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-
-                    for (var item in data['listTopics4']) {
-                      item['check'] ? _qtdCheck++ : 0;
-                      _nebulae.add(
-                        Topic(
-                          item['title'],
-                          item['text'],
-                          item['check'],
-                          item['expand'],
-                        ),
-                      );
-                    }
-
-                    var _valorPercent = (_qtdCheck / 21);
-                    var _percent =
-                        _qtdCheck == 21 ? (_valorPercent * 100) : (_valorPercent * 100).toStringAsPrecision(2);
-
-                    return CircularPercentIndicator(
-                      radius: 60.0,
-                      lineWidth: 20.0,
-                      animation: true,
-                      percent: _valorPercent,
-                      center: Text(
-                        "$_percent%",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                      ),
-                      footer: Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                          30,
-                          10,
-                          10,
-                          30,
-                        ),
-                        child: Text(
-                          _percent == 100 ? 'Parabéns você concluiu seu aprendizado!!!' : 'Percentual de Aprendizado',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-                        ),
-                      ),
-                      circularStrokeCap: CircularStrokeCap.round,
-                      progressColor: AppColors.yellowColor,
-                    );
-                  }
-                  return Center(
-                    child: CircularProgressIndicator.adaptive(
-                      backgroundColor: AppColors.whiteColor,
-                    ),
-                  );
-                },
-              ),
             ],
           ),
         ),

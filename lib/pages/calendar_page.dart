@@ -75,11 +75,9 @@ class _CalendarPageState extends State<CalendarPage> {
                 ),
               ),
             ),
-            RawScrollbar(
+            Scrollbar(
               thickness: 5,
               radius: Radius.circular(20),
-              thumbColor: AppColors.mainBlackColor,
-              isAlwaysShown: true,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -104,7 +102,6 @@ class _CalendarPageState extends State<CalendarPage> {
               thickness: 5,
               radius: Radius.circular(20),
               thumbColor: AppColors.mainBlackColor,
-              isAlwaysShown: true,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
