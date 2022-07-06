@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:projeto_sindrome_down/auth/authentication.dart';
+import 'package:projeto_sindrome_down/model/list_topics.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
 import 'package:projeto_sindrome_down/utils/appcolors.dart';
@@ -21,10 +19,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  var collection = FirebaseFirestore.instance.collection('users');
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  List<Topic> _nebulae = [];
 
-  final List<Topic> _nebulae = [];
+  @override
+  void initState() {
+    super.initState();
+    for (var i = 1; i < 5; i++) {
+      _nebulae += ListTopics(id: i).selectList();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +111,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     width: double.infinity,
                     child: Wrap(
                       alignment: WrapAlignment.center,
-                      children: [
+                      children: const [
                         BigCardWidget(
                           id: 1,
                           image: 'images/sindrome_down.jpeg',
@@ -139,14 +142,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
               SizedBox(height: Dimensions.height20),
-              Text(
-                'Seu progresso ',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: Dimensions.font18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               SizedBox(height: Dimensions.height20),
             ],
           ),
@@ -201,10 +196,10 @@ class MyDelegate extends SearchDelegate {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors.whiteColor,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.grey,
-                      offset: const Offset(
+                      offset: Offset(
                         3.0,
                         3.0,
                       ),
@@ -248,6 +243,7 @@ class MyDelegate extends SearchDelegate {
       final input = query.toLowerCase();
       return result.contains(input);
     }).toList();
+
     return Container(
       color: AppColors.mainColor,
       child: ListView.builder(
