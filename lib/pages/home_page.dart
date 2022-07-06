@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:projeto_sindrome_down/auth/authentication.dart';
 import 'package:projeto_sindrome_down/model/list_topics.dart';
 import 'package:projeto_sindrome_down/model/topic.dart';
 import 'package:projeto_sindrome_down/routes/routes.dart';
@@ -75,9 +74,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     IconButton(
                       onPressed: () {
-                        Authentication().signOut().then(
-                              (value) => Get.offNamed(Routes.initial),
-                            );
+                        Get.offNamed(Routes.initial);
                       },
                       icon: Icon(
                         Icons.logout,
@@ -122,6 +119,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           image: 'images/cuidados.jpeg',
                           title: 'Cuidados Gerais',
                         ),
+                        BigCardCalendarWidget(
+                          image: 'images/calendartopic.jpg',
+                          title: 'Calendário Vacinal',
+                        ),
                         BigCardWidget(
                           id: 3,
                           image: 'images/logo.jpg',
@@ -131,10 +132,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           id: 4,
                           image: 'images/covid.jpg',
                           title: 'Síndrome de Down x COVID-19',
-                        ),
-                        BigCardCalendarWidget(
-                          image: 'images/calendartopic.jpg',
-                          title: 'Calendário Vacinal',
                         ),
                       ],
                     ),

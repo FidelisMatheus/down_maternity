@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: Dimensions.height10,
                   ),
                   Text(
-                    'Tire todas suas dúvidas sobre como se preparar para a grávidez e cuidados com seu bebê',
+                    'Tire todas suas dúvidas sobre como se preparar para a grávidez e cuidados com seu bebê com Síndrome de Down',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Open Sans',
