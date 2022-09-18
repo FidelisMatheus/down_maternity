@@ -18,13 +18,13 @@ class ListTopics extends GetxController {
     if (id == 1) {
       return listTopics1 = [
         Topic(
-          'O que é a Síndrome de Down?',
+          'Síndrome de Down',
           '   A Síndrome de Down (SD) ou trissomia do cromossomo 21, é uma alteração genética causada por um erro na divisão celular durante a formação dos gametas (óvulos ou espermatozoides) ou na divisão embrionária. \n\n   A SD é a alteração cromossômica (cromossomopatia) mais comum em humanos (Cerca de 1 pessoa a cada 700 nasce com SD, independente de etnia, gênero ou classe social) e a principal causa de deficiência intelectual na população. A presença do cromossomo 21 extra na constituição genética determina o surgimento de um conjunto de sinais e sintomas observáveis.',
           false,
           false,
         ),
         Topic(
-          'Quais são os características observáveis?',
+          'Características',
           "Dentre os sinais físicos pode-se citar: olhos oblíquos; rosto arredondado; língua protusa (para fora da boca); raiz nasal achatada; baixa estatura; mãos pequenas e dedos curtos; flacidez muscular (hipotonia); prega palmar única; e dobras da pele nos cantos internos. Outros sintomas observáveis são o comprometimento intelectual; obesidade; disfunções cardiovasculares, musculares e pulmonares; bem como maior propensão do desenvolvimento de diabetes. \n\n    Não se atribuem graus à SD. As diferenças entre as pessoas com SD, tanto do aspecto físico quanto de desenvolvimento, decorrem de aspectos genéticos individuais, intercorrências clínicas, estimulação, educação, nutrição, contexto familiar, e social.",
           false,
           false,
@@ -36,13 +36,13 @@ class ListTopics extends GetxController {
           false,
         ),
         Topic(
-          'Por que Acontece?',
+          'Causas da Síndrome de Down',
           "   A Síndrome de Down ocorre ao acaso e não se sabe ao certo os motivos que levam ao surgimento da alteração. A síndrome existe em todas as etnias e classes sociais. Embora se saiba que a chance de síndrome de Down aumente com a idade materna, 80% das crianças com síndrome de Down nascem de mulheres com menos de 35 anos. As mulheres mais jovens em idade fértil têm mais filhos do que mães em idade avançada",
           false,
           false,
         ),
         Topic(
-          'Será que vai acontecer de novo em uma próxima gravidez?',
+          'Segunda Gravidez',
           "   A alteração genética ocorre ao acaso por isso provavelmente não ocorrerá novamente. Porém, não é possível afirmar com certeza, já que é ao acaso ou em alguns casos um dos pais é portador equilibrado da translocação do 21, mas para saber com mais detalhes é importante consultar um médico geneticista para estimar os riscos.",
           false,
           false,
@@ -63,7 +63,7 @@ class ListTopics extends GetxController {
     } else if (id == 2) {
       return listTopics2 = [
         Topic(
-          'O que eu posso fazer para ajudar o desenvolvimento da criança? ',
+          'Desenvolvimento ',
           "• Gestação\n• Amamentação\n• Vacinação\n• Acompanhamento médico e nutricional\n• Educação\n• Atividades físicas e cognitivas\n• Terapias\n• Socialização\n",
           false,
           false,
@@ -75,13 +75,13 @@ class ListTopics extends GetxController {
           false,
         ),
         Topic(
-          'Posso amamentar?',
-          "    Na primeira fase de vida, 0 meses até 6 meses, deve iniciar os cuidados com a alimentação do bebê portador de síndrome de down com a introdução somente do leite materno que é um alimento muito completo para o desenvolvimento, não precisando dar mais nada, como água, suco, mingau e outros leites. É importante que a mãe ajude o bebê a mamar.\n\nPosso dar de mamar:\n\n    O leite materno pode hidratar, oferecer proteínas e gorduras para um bom desenvolvimento; aumentar a relação de mãe e filho; fortalecer o sistema de defesa do bebê; proteger contra doenças;trabalhar os músculos; diminuir a dor na barriga; diminuir alergias; passar amor e carinho.",
+          'Amamentação',
+          "    Na primeira fase de vida, 0 meses até 6 meses, deve iniciar os cuidados com a alimentação do bebê com de síndrome de down com a introdução somente do leite materno que é um alimento muito completo para o desenvolvimento, não precisando dar mais nada, como água, suco, mingau e outros leites. É importante que a mãe ajude o bebê a mamar.\n\nPosso dar de mamar:\n\n    O leite materno pode hidratar, oferecer proteínas e gorduras para um bom desenvolvimento; aumentar a relação de mãe e filho; fortalecer o sistema de defesa do bebê; proteger contra doenças;trabalhar os músculos; diminuir a dor na barriga; diminuir alergias; passar amor e carinho.",
           false,
           false,
         ),
         Topic(
-          'Vamos fortalecer o corpo do seu filho?',
+          'Imunidade',
           "Vacinas\n\n    A vacina é uma medida muito importante para a proteção contra várias doenças, não protegendo somente a criança, mas todo mundo ao redor.    É um método ativo que estimula a defesa do corpo humano com a produção de anticorpos, aumentando a defesa do corpo. Sendo assim, a depender da faixa etária, tem as indicações certas entre relação aos tipos de vacinas que devem ser tomadas.\n\n   O calendário está disponível na aba Calendário Vacinal",
           false,
           false,

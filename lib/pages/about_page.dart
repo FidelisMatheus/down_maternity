@@ -32,8 +32,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   width: 50,
                   height: 50,
-                  margin: EdgeInsets.only(
-                      top: Dimensions.height10, left: Dimensions.height10),
+                  margin: EdgeInsets.only(top: Dimensions.height10, left: Dimensions.height10),
                 ),
                 Container(
                   child: Row(
@@ -42,18 +41,12 @@ class AboutPage extends StatelessWidget {
                       Text(
                         'Sobre ',
                         style: TextStyle(
-                            fontSize: 32,
-                            fontFamily: 'Open Sans',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white),
+                            fontSize: 32, fontFamily: 'Open Sans', fontWeight: FontWeight.normal, color: Colors.white),
                       ),
                       Text(
                         'o App',
                         style: TextStyle(
-                            fontFamily: 'Open Sans',
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            fontFamily: 'Open Sans', fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
                       )
                     ],
                   ),
@@ -75,18 +68,7 @@ class AboutPage extends StatelessWidget {
               shrinkWrap: true,
               children: [
                 const Text(
-                  'Saber exatamente quais são as questões de saúde que podem ocorrer com mais frequência em pessoas com síndrome de Down, conseguir diagnosticá-las de forma rápida e eficiente e buscar os tratamentos adequados são medidas essenciais para que indivíduos com a trissomia possam desfrutar de uma vida plena e saudável',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  textAlign: TextAlign.justify,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  'O Down Maternity é um aplicativo que contém informações sobre crianças com Síndrome de Down, nele será encontrado tópicos e com uma opção de marcação para os já vizualizados.',
+                  'Down Maternity é uma iniciativa de alunos e professores dos cursos de Ciências da Computação e Medicina da UNIFENAS (Alfenas-MG). Este App oferece orientações e informações sobre a promoção da saúde e cuidados de crianças com Síndrome de Down. O aplicativo foi estruturado com base nas Diretrizes de atenção à pessoa com Síndrome de Down” (BRASIL, 2013) e nas necessidades reais relatadas\n O App foi desenvolvido como projetos de Iniciação científica e disciplina programação para dispositivos móveis\n Planejamento e estruturação: Karine Alonso dos Santos ',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
@@ -111,6 +93,94 @@ class AboutPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Text(
+                      'Planejamento e estruturação:',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        shadows: const <Shadow>[
+                          Shadow(
+                            offset: Offset(2, 2),
+                            blurRadius: 3.0,
+                            color: Color.fromARGB(100, 0, 0, 0),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onTap: () => launchUrl(
+                                Uri.parse(''),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 100,
+                              child: Text(
+                                'Karine Alonso dos Santos',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  shadows: const <Shadow>[
+                                    Shadow(
+                                      offset: Offset(2, 2),
+                                      blurRadius: 3.0,
+                                      color: Color.fromARGB(100, 0, 0, 0),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onTap: () => launchUrl(
+                                Uri.parse('https://www.linkedin.com/in/danielly-beraldo-61a15711b/'),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 100,
+                              child: Text(
+                                'Danielly Beraldo dos Santos Silva ',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  shadows: const <Shadow>[
+                                    Shadow(
+                                      offset: Offset(2, 2),
+                                      blurRadius: 3.0,
+                                      color: Color.fromARGB(100, 0, 0, 0),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: Dimensions.height20,
+                    ),
                     Text(
                       'Desenvolvido por:',
                       textAlign: TextAlign.center,
@@ -143,8 +213,7 @@ class AboutPage extends StatelessWidget {
                                 size: 35,
                               ),
                               onTap: () => launchUrl(
-                                Uri.parse(
-                                    'https://www.linkedin.com/in/lucas-cruzz/'),
+                                Uri.parse('https://www.linkedin.com/in/lucas-cruzz/'),
                               ),
                             ),
                             SizedBox(
@@ -176,8 +245,7 @@ class AboutPage extends StatelessWidget {
                                 size: 35,
                               ),
                               onTap: () => launchUrl(
-                                Uri.parse(
-                                    'https://www.linkedin.com/in/matheus-fidelis/'),
+                                Uri.parse('https://www.linkedin.com/in/matheus-fidelis/'),
                               ),
                             ),
                             SizedBox(
@@ -209,8 +277,7 @@ class AboutPage extends StatelessWidget {
                                 size: 35,
                               ),
                               onTap: () => launchUrl(
-                                Uri.parse(
-                                    'https://www.linkedin.com/in/leonardo-garroni'),
+                                Uri.parse('https://www.linkedin.com/in/leonardo-garroni'),
                               ),
                             ),
                             SizedBox(
