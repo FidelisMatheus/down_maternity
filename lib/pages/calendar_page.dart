@@ -137,12 +137,18 @@ class _CalendarPageState extends State<CalendarPage> {
       ],
     ),
   ];
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    // Get the height you want to scroll to.
+    var screenHeight = MediaQuery.of(context).size.height;
+    double scroll = 0;
+
     return Scaffold(
       backgroundColor: const Color(0xFF8ECAE6),
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           children: [
             Stack(
@@ -209,91 +215,86 @@ class _CalendarPageState extends State<CalendarPage> {
                             color: Colors.black,
                           ),
                         ),
-                        child: RawScrollbar(
-                          thickness: 5,
-                          radius: Radius.circular(20),
-                          thumbColor: AppColors.mainBlackColor,
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 400,
-                                width: 150,
-                                child: Center(
-                                  child: Text(
-                                    tableList[index].cicloVida,
-                                    style: TextStyle(
-                                      fontFamily: 'Open Sans',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: Dimensions.font16,
-                                    ),
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.red[100],
-                                  border: Border(
-                                    right: BorderSide(
-                                      width: 2,
-                                      color: Colors.black,
-                                    ),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 400,
+                              width: 150,
+                              child: Center(
+                                child: Text(
+                                  tableList[index].cicloVida,
+                                  style: TextStyle(
+                                    fontFamily: 'Open Sans',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: Dimensions.font16,
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: 400,
-                                width: 500,
-                                child: Center(
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: ClampingScrollPhysics(),
-                                    itemCount: tableList[index].vacina.length,
-                                    itemBuilder: (context, pos) {
-                                      return Text(
-                                        tableList[index].vacina[pos],
-                                        style: TextStyle(
-                                          fontFamily: 'Open Sans',
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: Dimensions.font16,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.red[100],
-                                  border: Border(
-                                    right: BorderSide(
-                                      width: 2,
-                                      color: Colors.black,
-                                    ),
+                              decoration: BoxDecoration(
+                                color: Colors.red[100],
+                                border: Border(
+                                  right: BorderSide(
+                                    width: 2,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: 400,
-                                width: 200,
-                                child: Center(
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: ClampingScrollPhysics(),
-                                    itemCount: tableList[index].doses.length,
-                                    itemBuilder: (context, pos) {
-                                      return Text(
-                                        tableList[index].doses[pos],
-                                        style: TextStyle(
-                                          fontFamily: 'Open Sans',
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: Dimensions.font16,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.red[100],
+                            ),
+                            Container(
+                              height: 400,
+                              width: 500,
+                              child: Center(
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: ClampingScrollPhysics(),
+                                  itemCount: tableList[index].vacina.length,
+                                  itemBuilder: (context, pos) {
+                                    return Text(
+                                      tableList[index].vacina[pos],
+                                      style: TextStyle(
+                                        fontFamily: 'Open Sans',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: Dimensions.font16,
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
-                            ],
-                          ),
+                              decoration: BoxDecoration(
+                                color: Colors.red[100],
+                                border: Border(
+                                  right: BorderSide(
+                                    width: 2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 400,
+                              width: 200,
+                              child: Center(
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: ClampingScrollPhysics(),
+                                  itemCount: tableList[index].doses.length,
+                                  itemBuilder: (context, pos) {
+                                    return Text(
+                                      tableList[index].doses[pos],
+                                      style: TextStyle(
+                                        fontFamily: 'Open Sans',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: Dimensions.font16,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.red[100],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -306,6 +307,64 @@ class _CalendarPageState extends State<CalendarPage> {
             ),
             SizedBox(
               height: Dimensions.height40,
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        color: AppColors.mainColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: () {
+                if (scroll > 0) {
+                  scroll -= 150;
+                  scrollController.animateTo(
+                    scroll,
+                    curve: Curves.easeOut,
+                    duration: Duration(seconds: 1),
+                  );
+                }
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 50),
+                padding: EdgeInsets.all(10),
+                child: Icon(Icons.arrow_drop_up),
+                decoration: BoxDecoration(
+                  color: AppColors.blueColor,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                if (scroll < 3150) {
+                  scroll += 150;
+                  scrollController.animateTo(
+                    scroll,
+                    curve: Curves.easeOut,
+                    duration: Duration(seconds: 1),
+                  );
+                }
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 50),
+                padding: EdgeInsets.all(10),
+                child: Icon(Icons.arrow_drop_down),
+                decoration: BoxDecoration(
+                  color: AppColors.blueColor,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
